@@ -52,9 +52,8 @@ def cnn_model_fn(features, mode):
 
 def input_fn(features, batch_size=1):
     features = tf.constant(features)
-    #features = tf.image.rgb_to_grayscale(features)
     dataset = tf.data.Dataset.from_tensor_slices(features)
-    #dataset = dataset.map(read_image)
+    dataset = dataset.map(read_image)
     return dataset.batch(batch_size)
 
 def read_image(image):
