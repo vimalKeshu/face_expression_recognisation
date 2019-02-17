@@ -1,12 +1,15 @@
-# face_expression_recognisation
-Detect face expression from video or static images.
+## face_expression_recognisation
+* Detect face expression from video or static images.
+* Built model using python 3.6/3.5 and tensorflow 1.12 using estimator.
+* Tested on mac and ubuntu.
 
-### Dependencies
+## Dependencies
 * tensorflow
 * cv2
 * numpy
 * mtcnn
 * jupyter
+* Uncompress output.tar.gz
 
 ## Acknowledgments
 * Used FER dataset for model training. [FER](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge)
