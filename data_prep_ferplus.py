@@ -78,6 +78,28 @@ def create_dataset(folder_path, label_file_name='label.csv', image_size=64, emot
     
     return images[indices], labels[indices]
 
+def read_images(image_dir, image_size=64, emotion_count=8):
+    if not tf.gfile.Exists(image_dir):
+        tf.logging.error("Image directory '" + image_dir + "' not found.")
+        return None
+
+    extensions = ['JPEG', 'JPG', 'jpeg', 'jpg', 'PNG','png']
+    features = []
+    file_list = []
+
+    for extension in extensions:
+            file_glob = os.path.join(image_dir, '*.' + extension)
+            file_list.extend(tf.gfile.Glob(file_glob))
+
+    for file_path in file_list:
+        image = cv2.imread(file_path,0)
+        image = np.array(image,dtype=np.float32)
+        image = np.resize(image,[image_size,image_size])
+        features.append(image)
+
+    features = np.array(features,dtype=np.float32)
+
+    return features
 
 
 if __name__ == '__main__':
