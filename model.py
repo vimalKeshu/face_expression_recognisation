@@ -5,7 +5,6 @@ from __future__ import division
 from __future__ import print_function
 
 import tensorflow as tf
-import tensorflow.contrib.slim as slim
 
 def extract_features(features, bottleneck_layer_size, image_size, mode):
     # Input layer
